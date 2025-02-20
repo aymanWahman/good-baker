@@ -1,29 +1,50 @@
-import Image from "next/image";
 
-export default function Home() {
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
+
+const Home: FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/img/baker2.png"
-          alt="Baker logo"
-          width={380}
-          height={238}
-          priority
-        />
-        <Image
-          className="dark:invert"
-          src="/img/baker.png"
-          alt="Baker logo"
-          width={280}
-          height={138}
-          priority
-        />
+    <div className="mt-16 md:mt-24 mb-7 px-5">
       
-    
-      </main>
-    
+      {/* Section: Languages Grid */}
+      <section className="grid md:grid-cols-2 gap-9 p-5 text-center text-gray-600 font-serif">
+        
+        <div className="mx-auto">
+          <h2 className="font-bold text-xl md:text-4xl my-7 "> المخبوزات </h2>
+          <Link href="/">
+            <Image
+              className="rounded-xl shadow-2xl shadow-black w-full hover:scale-105 transition-transform duration-300"
+              src="/img/baker.png"
+              alt="المخبوزات"
+              width={280}
+              height={140}
+              loading="lazy"
+              priority={false}
+            />
+          </Link>
+        </div>
+
+        {/* Programming Section */}
+        <div className="mx-auto">
+          <h2 className="font-bold text-xl md:text-4xl my-7"> الحلويات </h2>
+          <Link href="/">
+            <Image
+              className="rounded-xl shadow-2xl shadow-black w-full hover:scale-105 transition-transform duration-300"
+              src="/img/baker1.png"
+              alt="الحلويات"
+              width={280}
+              height={140}
+              loading="lazy"
+              priority={false}
+            />
+          </Link>
+        </div>
+      </section>
+      
+  
     </div>
   );
-}
+};
+
+export default Home;
