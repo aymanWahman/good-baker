@@ -1,17 +1,16 @@
-"use client";
-import { ThemeProvider } from "next-themes";
-import { Cairo, Tajawal } from "next/font/google"; // استيراد الخطوط
-import "./globals.css";
-import Header from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { SessionProvider } from "next-auth/react";
-import Head from 'next/head';
+import './globals.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
+import { Providers } from '@/components/Providers';
+import { Tajawal } from "next/font/google";
 
-// تحميل الخطوط
-const cairo = Cairo({ subsets: ["latin"], weight: "700" }); // خط الإنجليزي
-const tajawal = Tajawal({ subsets: ["arabic"], weight: "400" }); // خط العربي
+const tajawal = Tajawal({ subsets: ["arabic"], weight: "400" });
 
-
+export const metadata = {
+  title: 'خباز الخير',
+  description: 'اكتشف جمال وسحر مدينة بورسعيد، بوابة مصر الشرقية وتاريخها العريق',
+};
 
 export default function RootLayout({
   children,
@@ -19,21 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cairo.className}>
-       <Head>
-        <title>خباز الخير</title>
-        <meta name="description" content="لتصنيع المخبوزات والحلويات" />
-        <meta name="keywords" content="" />
-      </Head>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <SessionProvider>
-            <Header />
-            <main className={tajawal.className}>{children}</main>{" "}
-            {/* تطبيق خط Tajawal للنصوص العربية */}
+    <html lang="ar" suppressHydrationWarning>
+      <body className={tajawal.className}>
+        <Providers>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
             <Footer />
-          </SessionProvider>
-        </ThemeProvider>
+          </div>
+          <ScrollToTop />
+        </Providers>
       </body>
     </html>
   );
