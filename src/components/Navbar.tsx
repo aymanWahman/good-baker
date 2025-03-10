@@ -11,14 +11,14 @@ const Header = () => {
   const { data: session } = useSession();
 
   const menuItems = [
-    { href: "/aboutPort", label: "عن منتجاتنا" },
-    { href: "/contact", label: "اتصل بنا" },
+    { href: "/about", label: "اتصل بنا" },
+    // { href: "/aboutProducts", label: "عن منتجاتنا" },
   ];
 
   return (
     <header className="fixed top-0 w-full px-4 py-3 z-50 bg-transparent backdrop-blur-[2px] border-b border-gray-200 dark:border-gray-700 rounded-b-2xl shadow-sm">
       <div className="container mx-auto flex justify-between items-center lg:flex-row flex-row-reverse">
-        {/* القسم الأول (أقصى اليسار): تسجيل الدخول + وضع الدارك مود */}
+        {/*  تسجيل الدخول + وضع الدارك مود */}
         <div className="flex items-center gap-x-4 lg:order-first order-last">
           {/* زر الدارك مود */}
           <DarkModeToggle />
@@ -26,15 +26,14 @@ const Header = () => {
           {/* تسجيل الدخول */}
           {session ? null : (
             <Link
-              href="/auth/signin"
+              href="/auth/login"
               className="px-4 py-2 text-lg text-seaBlue hover:text-sandyGold hover:bg-gray-100/50 rounded-lg transition duration-300"
             >
               تسجيل الدخول
             </Link>
           )}
-        </div>
 
-        {/* القسم الثاني (الوسط - اليسار): القائمة */}
+            
         <div className="hidden lg:flex items-center gap-x-6">
           <nav className="flex items-center gap-x-1">
             {menuItems.map((item) => (
@@ -48,8 +47,9 @@ const Header = () => {
             ))}
           </nav>
         </div>
+        </div>
 
-        {/* القسم الثالث (اليمين): الشعار */}
+        {/*  الشعار */}
         <div className="flex items-center lg:order-last order-first">
           {/* الشعار - دائماً في الناحية اليمنى */}
           <Link href="/" className="flex items-center">
@@ -61,9 +61,7 @@ const Header = () => {
 
         {/* قائمة الموبايل */}
         <div className="lg:hidden flex items-center gap-x-4">
-          {/* زر الدارك مود */}
-          <DarkModeToggle />
-
+    
           {/* زر القائمة */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
