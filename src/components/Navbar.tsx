@@ -1,13 +1,14 @@
-'use client';
+"use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FiMenu, FiUser, FiLogOut } from 'react-icons/fi';
+import { FiMenu } from 'react-icons/fi'; // ✅ حذف الأيقونات غير المستخدمة
 import DarkModeToggle from "./DarkmodeToggle";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react"; // ✅ حذف signOut غير المستخدم
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  // ❌ علقنا هذه المتغيرات لحين استخدامها في المستقبل
+  // const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const { data: session } = useSession();
 
   const menuItems = [
@@ -33,20 +34,19 @@ const Header = () => {
             </Link>
           )}
 
-            
-        <div className="hidden lg:flex items-center gap-x-6">
-          <nav className="flex items-center gap-x-1">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-lg text-seaBlue hover:text-sandyGold hover:bg-gray-100/50 rounded-lg transition duration-300 whitespace-nowrap"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
+          <div className="hidden lg:flex items-center gap-x-6">
+            <nav className="flex items-center gap-x-1">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-2 text-lg text-seaBlue hover:text-sandyGold hover:bg-gray-100/50 rounded-lg transition duration-300 whitespace-nowrap"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {/*  الشعار */}
@@ -61,7 +61,6 @@ const Header = () => {
 
         {/* قائمة الموبايل */}
         <div className="lg:hidden flex items-center gap-x-4">
-    
           {/* زر القائمة */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
