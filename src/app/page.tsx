@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-// import Products from "@/components/Products";
 
 const Home = async () => {
-  
-
   return (
-    <div className="mt-16 md:mt-24 mb-7 px-5">
+    <main className="mt-16 md:mt-24 mb-7 px-5">
       {/* Section: Languages Grid */}
       <section className="grid md:grid-cols-2 gap-9 p-5 text-center text-gray-600 font-serif">
         <div className="mx-auto">
@@ -39,9 +36,7 @@ const Home = async () => {
           </Link>
         </div>
       </section>
-
-    
-    </div>
+    </main>
   );
 };
 

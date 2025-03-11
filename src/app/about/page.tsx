@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 // import { ArrowRightIcon} from '@heroicons/react/24/solid';
 import { HiPhone } from "react-icons/hi";
-import { IoIosMail } from "react-icons/io";
+// import { IoIosMail } from "react-icons/io";
 
 export const metadata = {
   title: "About me",
@@ -15,7 +15,7 @@ const Page = () => {
         <div className="col-span-1 m-auto ">
           <Image
             className="rounded-xl shadow-2xl shadow-black md:w-52 h-32 md:h-56"
-            src="/img/baker.png"
+            src="https://res.cloudinary.com/dktod7mod/image/upload/v1741639489/DALL_E_2025-01-23_12.18.31_-_A_stunning_image_of_a_French_chef_in_a_professional_white_uniform_and_chef_s_hat_presenting_a_wide_variety_of_baked_goods_on_a_beautifully_arranged_ta_z95phe.webp"
             alt="المخبوزات"
             width={120}
             height={120}

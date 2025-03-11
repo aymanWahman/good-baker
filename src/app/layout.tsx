@@ -1,15 +1,20 @@
-import './globals.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import ScrollToTop from '@/components/ScrollToTop';
-import { Providers } from '@/components/Providers';
+import "./globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import { Providers } from "@/components/Providers";
 import { Tajawal } from "next/font/google";
 
-const tajawal = Tajawal({ subsets: ["arabic"], weight: "400" });
+const tajawal = Tajawal({
+  subsets: ["arabic"],
+  weight: ["400", "500", "700"],
+  preload: true,
+});
 
 export const metadata = {
-  title: 'خباز الخير',
-  description: 'اكتشف جمال وسحر مدينة بورسعيد، بوابة مصر الشرقية وتاريخها العريق',
+  title: "خباز الخير",
+  description:
+    "اكتشف جمال وسحر مدينة بورسعيد، بوابة مصر الشرقية وتاريخها العريق",
 };
 
 export default function RootLayout({
