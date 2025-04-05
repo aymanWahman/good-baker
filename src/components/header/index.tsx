@@ -7,6 +7,7 @@ import LanguageSwitcher from "./language-switcher";
 import AuthButtons from "./auth-buttons";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/auth";
+import Image from "next/image";
 
 async function Header() {
   const locale = await getCurrentLocale();
@@ -17,9 +18,17 @@ async function Header() {
       <div className="container flex items-center justify-between gap-6 lg:gap-10">
         <Link
           href={`/${locale}`}
-          className="text-primary font-semibold text-2xl"
+          className="text-primary font-semibold text-2xl flex gap-2"
         >
-          🍕 {translations.logo}
+            <Image
+                      src='https://res.cloudinary.com/dktod7mod/image/upload/v1743883234/logoBaker_whecuw.png'
+                      alt='Bakery'
+                      width={45}
+                      height={25}
+                      className='object-contain'
+                      loading='eager'
+                      priority
+                    /> {translations.logo}
         </Link>
         <Navbar translations={translations} initialSession={initialSession} />
         <div className="flex items-center gap-6 flex-1 justify-end">
